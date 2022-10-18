@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 import CountryService from '~~/services/CountryService';
 export default {
@@ -50,6 +51,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="floatlabel-demo">
     <div class="card">
@@ -63,11 +66,15 @@ export default {
         </div>
         <div class="field col-12 md:col-4">
           <span class="p-float-label">
+<<<<<<< HEAD
             <AutoComplete
               id="autocomplete" v-model="value2" :suggestions="filteredCountries"
               field="name"
               @complete="searchCountry($event)"
             />
+=======
+            <AutoComplete id="autocomplete" v-model="value2" :suggestions="filteredCountries" field="name" @complete="searchCountry($event)" />
+>>>>>>> 2d5dea2 (Initial commit)
             <label for="autocomplete">AutoComplete</label>
           </span>
         </div>
@@ -114,11 +121,15 @@ export default {
         </div>
         <div class="field col-12 md:col-4">
           <span class="p-float-label">
+<<<<<<< HEAD
             <MultiSelect
               id="multiselect" v-model="value9" :options="cities"
               option-label="name"
               :filter="false"
             />
+=======
+            <MultiSelect id="multiselect" v-model="value9" :options="cities" option-label="name" :filter="false" />
+>>>>>>> 2d5dea2 (Initial commit)
             <label for="multiselect">MultiSelect</label>
           </span>
         </div>
@@ -132,3 +143,58 @@ export default {
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+import CountryService from '~~/services/CountryService'
+export default {
+  data () {
+    return {
+      countries: [],
+      filteredCountries: null,
+      cities: [
+        { name: 'New York', code: 'NY' },
+        { name: 'Rome', code: 'RM' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Paris', code: 'PRS' }
+      ],
+      value1: null,
+      value2: null,
+      value3: null,
+      value4: null,
+      value5: null,
+      value6: null,
+      value7: null,
+      value8: null,
+      value9: null,
+      value10: null
+    }
+  },
+  created () {
+    this.countryService = new CountryService()
+  },
+  mounted () {
+    this.countryService.getCountries().then((countries) => {
+      this.countries = countries
+    })
+  },
+  methods: {
+    searchCountry (event) {
+      // in a real application, make a request to a remote url with the query and
+      // return filtered results, for demo we filter at client side
+      const filtered = []
+      const query = event.query
+      for (let i = 0; i < this.countries.length; i++) {
+        const country = this.countries[i]
+        if (country.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+          filtered.push(country)
+        }
+      }
+      this.filteredCountries = filtered
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

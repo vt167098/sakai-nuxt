@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 import type { PropType } from 'vue';
 
@@ -108,12 +109,18 @@ export default defineComponent({
 });
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div id="layout-config" :class="containerClass">
     <a id="layout-config-button" href="#" class="layout-config-button" @click="toggleConfigurator">
       <i class="pi pi-cog" />
     </a>
+<<<<<<< HEAD
     <Button class="p-button-danger layout-config-close p-button-rounded p-button-text" icon="pi pi-times" :style="{ 'z-index': 1 }" @click="hideConfigurator" />
+=======
+    <Button class="p-button-danger layout-config-close p-button-rounded p-button-text" icon="pi pi-times" :style="{'z-index': 1}" @click="hideConfigurator" />
+>>>>>>> 2d5dea2 (Initial commit)
 
     <div class="layout-config-content">
       <h5 class="mt-0">
@@ -121,13 +128,18 @@ export default defineComponent({
       </h5>
       <div class="config-scale">
         <Button icon="pi pi-minus" class="p-button-text" :disabled="scale === scales[0]" @click="decrementScale()" />
+<<<<<<< HEAD
         <i v-for="s of scales" :key="s" class="pi pi-circle-on" :class="{ 'scale-active': s === scale }" />
+=======
+        <i v-for="s of scales" :key="s" class="pi pi-circle-on" :class="{'scale-active': s === scale}" />
+>>>>>>> 2d5dea2 (Initial commit)
         <Button icon="pi pi-plus" class="p-button-text" :disabled="scale === scales[scales.length - 1]" @click="incrementScale()" />
       </div>
 
       <h5>Input Style</h5>
       <div class="p-formgroup-inline">
         <div class="field-radiobutton">
+<<<<<<< HEAD
           <RadioButton
             id="input_outlined" name="inputstyle" value="outlined"
             :model-value="$primevue.config.inputStyle"
@@ -141,6 +153,13 @@ export default defineComponent({
             :model-value="$primevue.config.inputStyle"
             @change="changeInputStyle('filled')"
           />
+=======
+          <RadioButton id="input_outlined" name="inputstyle" value="outlined" :model-value="$primevue.config.inputStyle" @change="changeInputStyle('outlined')" />
+          <label for="input_outlined">Outlined</label>
+        </div>
+        <div class="field-radiobutton">
+          <RadioButton id="input_filled" name="inputstyle" value="filled" :model-value="$primevue.config.inputStyle" @change="changeInputStyle('filled')" />
+>>>>>>> 2d5dea2 (Initial commit)
           <label for="input_filled">Filled</label>
         </div>
       </div>
@@ -151,6 +170,7 @@ export default defineComponent({
       <h5>Menu Type</h5>
       <div class="p-formgroup-inline">
         <div class="field-radiobutton">
+<<<<<<< HEAD
           <RadioButton
             id="static" v-model="d_layoutMode" name="layoutMode"
             value="static"
@@ -164,6 +184,13 @@ export default defineComponent({
             value="overlay"
             @change="changeLayout($event, 'overlay')"
           />
+=======
+          <RadioButton id="static" v-model="d_layoutMode" name="layoutMode" value="static" @change="changeLayout($event, 'static')" />
+          <label for="static">Static</label>
+        </div>
+        <div class="field-radiobutton">
+          <RadioButton id="overlay" v-model="d_layoutMode" name="layoutMode" value="overlay" @change="changeLayout($event, 'overlay')" />
+>>>>>>> 2d5dea2 (Initial commit)
           <label for="overlay">Overlay</label>
         </div>
       </div>
@@ -371,3 +398,112 @@ export default defineComponent({
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+import type { PropType } from 'vue'
+
+export default defineComponent({
+  props: {
+    layoutMode: {
+      type: String as PropType<'static' | 'overlay'>,
+      default: 'static'
+    }
+  },
+  emits: ['layout-change'],
+  data () {
+    return {
+      active: false,
+      d_layoutMode: this.layoutMode,
+      scale: 14,
+      scales: [12, 13, 14, 15, 16]
+    }
+  },
+  computed: {
+    containerClass () {
+      return ['layout-config', { 'layout-config-active': this.active }]
+    },
+    rippleActive () {
+      return this.$primevue.config.ripple
+    },
+    inputStyle () {
+      return this.$appState.inputStyle
+    }
+  },
+  watch: {
+    $route () {
+      if (this.active) {
+        this.active = false
+        this.unbindOutsideClickListener()
+      }
+    },
+    layoutMode (newValue) {
+      this.d_layoutMode = newValue
+    }
+  },
+  outsideClickListener: null,
+  methods: {
+    toggleConfigurator (event) {
+      this.active = !this.active
+      event.preventDefault()
+
+      if (this.active) { this.bindOutsideClickListener() } else { this.unbindOutsideClickListener() }
+    },
+    hideConfigurator (event) {
+      this.active = false
+      this.unbindOutsideClickListener()
+      event.preventDefault()
+    },
+    changeInputStyle (value) {
+      this.$primevue.config.inputStyle = value
+    },
+    changeRipple (value) {
+      this.$primevue.config.ripple = value
+    },
+    changeLayout (event, layoutMode) {
+      this.$emit('layout-change', layoutMode)
+      event.preventDefault()
+    },
+    bindOutsideClickListener () {
+      if (!this.outsideClickListener) {
+        this.outsideClickListener = (event) => {
+          if (this.active && this.isOutsideClicked(event)) {
+            this.active = false
+          }
+        }
+        document.addEventListener('click', this.outsideClickListener)
+      }
+    },
+    unbindOutsideClickListener () {
+      if (this.outsideClickListener) {
+        document.removeEventListener('click', this.outsideClickListener)
+        this.outsideClickListener = null
+      }
+    },
+    isOutsideClicked (event) {
+      return !(this.$el.isSameNode(event.target) || this.$el.contains(event.target))
+    },
+    decrementScale () {
+      this.scale--
+      this.applyScale()
+    },
+    incrementScale () {
+      this.scale++
+      this.applyScale()
+    },
+    applyScale () {
+      document.documentElement.style.fontSize = `${this.scale}px`
+    },
+    changeTheme (event: any, theme: string, dark?: boolean) {
+      this.$appState.theme = theme
+      this.$appState.darkTheme = dark
+
+      if (theme.startsWith('md')) {
+        this.$primevue.config.ripple = true
+      }
+    }
+  }
+})
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

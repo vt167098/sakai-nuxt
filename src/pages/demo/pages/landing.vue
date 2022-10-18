@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 definePageMeta({
   layout: 'empty'
+<<<<<<< HEAD
 });
 
 const { $appState } = useNuxtApp();
@@ -13,11 +14,28 @@ function smoothScroll(id: string) {
 }
 </script>
 
+=======
+})
+
+const { $appState } = useNuxtApp()
+const logoColor = computed(() => ($appState.darkTheme ? 'white' : 'dark'))
+
+function smoothScroll (id: string) {
+  document.querySelector(id).scrollIntoView({
+    behavior: 'smooth'
+  })
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="surface-0 overflow-hidden">
     <div class="py-4 px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 flex align-items-center justify-content-between relative lg:static">
       <NuxtLink to="/" class="flex align-items-center">
+<<<<<<< HEAD
         <img :src="`/images/logo-${logoColor}.svg`" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2"><span class="text-900 font-medium text-2xl line-height-3 mr-8">SAKAI</span>
+=======
+        <img :src="'/images/logo-' + logoColor + '.svg'" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2"><span class="text-900 font-medium text-2xl line-height-3 mr-8">SAKAI</span>
+>>>>>>> 2d5dea2 (Initial commit)
       </NuxtLink>
       <a
         v-ripple
@@ -374,11 +392,15 @@ function smoothScroll(id: string) {
       <div class="grid justify-content-between">
         <div class="col-12 md:col-2" style="margin-top:-1.5rem;">
           <div class="flex flex-wrap align-items-center justify-content-center md:justify-content-start md:mb-0 mb-3">
+<<<<<<< HEAD
             <img
               :src="`/images/logo-${logoColor}.svg`" alt="footer sections" width="50"
               height="50"
               class="mr-2"
             >
+=======
+            <img :src="'/images/logo-' + logoColor + '.svg'" alt="footer sections" width="50" height="50" class="mr-2">
+>>>>>>> 2d5dea2 (Initial commit)
             <h4 class="font-medium text-3xl text-900">
               SAKAI
             </h4>

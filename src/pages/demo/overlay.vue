@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 import ProductService from '~~/services/ProductService';
 
@@ -68,16 +69,22 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid overlay-demo">
     <div class="col-12 lg:col-6">
       <div class="card p-fluid">
         <h5>Dialog</h5>
+<<<<<<< HEAD
         <Dialog
           v-model:visible="display" header="Dialog" :breakpoints="{ '960px': '75vw' }"
           :style="{ width: '30vw' }"
           :modal="true"
         >
+=======
+        <Dialog v-model:visible="display" header="Dialog" :breakpoints="{'960px': '75vw'}" :style="{width: '30vw'}" :modal="true">
+>>>>>>> 2d5dea2 (Initial commit)
           <p class="line-height-3 m-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
@@ -105,11 +112,15 @@ export default {
           </div>
           <div class="col-6">
             <Button type="button" label="DataTable" class="p-button-success" @click="toggleDataTable" />
+<<<<<<< HEAD
             <OverlayPanel
               id="overlay_panel" ref="op2" append-to="body"
               :show-close-icon="true"
               style="width: 450px"
             >
+=======
+            <OverlayPanel id="overlay_panel" ref="op2" append-to="body" :show-close-icon="true" style="width: 450px">
+>>>>>>> 2d5dea2 (Initial commit)
               <DataTable
                 v-model:selection="selectedProduct"
                 :value="products"
@@ -121,7 +132,11 @@ export default {
                 <Column field="name" header="Name" :sortable="true" />
                 <Column header="Image">
                   <template #body="slotProps">
+<<<<<<< HEAD
                     <img :src="`/images/product/${slotProps.data.image}`" :alt="slotProps.data.image" width="100" class="shadow-2">
+=======
+                    <img :src="'/images/product/' + slotProps.data.image" :alt="slotProps.data.image" width="100" class="shadow-2">
+>>>>>>> 2d5dea2 (Initial commit)
                   </template>
                 </Column>
                 <Column field="price" header="Price" :sortable="true">
@@ -139,18 +154,26 @@ export default {
       <div class="card p-fluid">
         <h5>Confirmation</h5>
         <Button label="Delete" icon="pi pi-trash" class="p-button-danger" @click="openConfirmation" />
+<<<<<<< HEAD
         <Dialog v-model:visible="displayConfirmation" header="Confirmation" :style="{ width: '350px' }" :modal="true">
+=======
+        <Dialog v-model:visible="displayConfirmation" header="Confirmation" :style="{width: '350px'}" :modal="true">
+>>>>>>> 2d5dea2 (Initial commit)
           <div class="flex align-items-center justify-content-center">
             <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
             <span>Are you sure you want to proceed?</span>
           </div>
           <template #footer>
             <Button label="No" icon="pi pi-times" class="p-button-text" @click="closeConfirmation" />
+<<<<<<< HEAD
             <Button
               label="Yes" icon="pi pi-check" class="p-button-text"
               autofocus
               @click="closeConfirmation"
             />
+=======
+            <Button label="Yes" icon="pi pi-check" class="p-button-text" autofocus @click="closeConfirmation" />
+>>>>>>> 2d5dea2 (Initial commit)
           </template>
         </Dialog>
       </div>
@@ -160,11 +183,15 @@ export default {
           <h1 style="fontWeight:normal">
             Left Sidebar
           </h1>
+<<<<<<< HEAD
           <Button
             type="button" label="Save" class="p-button-success"
             style="margin-right:.25em"
             @click="visibleLeft = false"
           />
+=======
+          <Button type="button" label="Save" class="p-button-success" style="margin-right:.25em" @click="visibleLeft = false" />
+>>>>>>> 2d5dea2 (Initial commit)
           <Button type="button" label="Cancel" class="p-button-secondary" @click="visibleLeft = false" />
         </Sidebar>
 
@@ -172,11 +199,15 @@ export default {
           <h1 style="fontWeight:normal">
             Right Sidebar
           </h1>
+<<<<<<< HEAD
           <Button
             type="button" label="Save" class="p-button-success"
             style="margin-right:.25em"
             @click="visibleRight = false"
           />
+=======
+          <Button type="button" label="Save" class="p-button-success" style="margin-right:.25em" @click="visibleRight = false" />
+>>>>>>> 2d5dea2 (Initial commit)
           <Button type="button" label="Cancel" class="p-button-secondary" @click="visibleRight = false" />
         </Sidebar>
 
@@ -184,11 +215,15 @@ export default {
           <h1 style="fontWeight:normal">
             Top Sidebar
           </h1>
+<<<<<<< HEAD
           <Button
             type="button" label="Save" class="p-button-success"
             style="margin-right:.25em"
             @click="visibleTop = false"
           />
+=======
+          <Button type="button" label="Save" class="p-button-success" style="margin-right:.25em" @click="visibleTop = false" />
+>>>>>>> 2d5dea2 (Initial commit)
           <Button type="button" label="Cancel" class="p-button-secondary" @click="visibleTop = false" />
         </Sidebar>
 
@@ -196,11 +231,15 @@ export default {
           <h1 style="fontWeight:normal">
             Bottom Sidebar
           </h1>
+<<<<<<< HEAD
           <Button
             type="button" label="Save" class="p-button-success"
             style="margin-right:.25em"
             @click="visibleBottom = false"
           />
+=======
+          <Button type="button" label="Save" class="p-button-success" style="margin-right:.25em" @click="visibleBottom = false" />
+>>>>>>> 2d5dea2 (Initial commit)
           <Button type="button" label="Cancel" class="p-button-secondary" @click="visibleBottom = false" />
         </Sidebar>
 
@@ -208,11 +247,15 @@ export default {
           <h1 style="fontWeight:normal">
             Full Screen
           </h1>
+<<<<<<< HEAD
           <Button
             type="button" label="Save" class="p-button-success"
             style="margin-right:.25em"
             @click="visibleFull = false"
           />
+=======
+          <Button type="button" label="Save" class="p-button-success" style="margin-right:.25em" @click="visibleFull = false" />
+>>>>>>> 2d5dea2 (Initial commit)
           <Button type="button" label="Cancel" class="p-button-secondary" @click="visibleFull = false" />
         </Sidebar>
 
@@ -240,13 +283,90 @@ export default {
         <h5>ConfirmPopup</h5>
         <ClientOnly>
           <ConfirmPopup />
+<<<<<<< HEAD
           <Button
             ref="popup" icon="pi pi-check" label="Confirm"
             class="mr-2"
             @click="confirm($event)"
           />
+=======
+          <Button ref="popup" icon="pi pi-check" label="Confirm" class="mr-2" @click="confirm($event)" />
+>>>>>>> 2d5dea2 (Initial commit)
         </ClientOnly>
       </div>
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+import ProductService from '~~/services/ProductService'
+
+export default {
+  data () {
+    return {
+      display: false,
+      displayConfirmation: false,
+      visibleLeft: false,
+      visibleRight: false,
+      visibleTop: false,
+      visibleBottom: false,
+      visibleFull: false,
+      products: [],
+      selectedProduct: null
+    }
+  },
+  productService: null,
+  created () {
+    this.productService = new ProductService()
+  },
+  mounted () {
+    this.productService.getProductsSmall().then(data => this.products = data)
+  },
+  methods: {
+    open () {
+      this.display = true
+    },
+    close () {
+      this.display = false
+    },
+    openConfirmation () {
+      this.displayConfirmation = true
+    },
+    closeConfirmation () {
+      this.displayConfirmation = false
+    },
+    toggle (event) {
+      this.$refs.op.toggle(event)
+    },
+    toggleDataTable (event) {
+      this.$refs.op2.toggle(event)
+    },
+    formatCurrency (value) {
+      return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+    },
+    onProductSelect (event) {
+      this.$refs.op.hide()
+      this.$toast.add({ severity: 'info', summary: 'Product Selected', detail: event.data.name, life: 3000 })
+    },
+    confirm (event) {
+      console.log(event)
+      /* if (process.client && typeof this.$confirm.require === 'function') {
+        this.$confirm.require({
+          target: event.currentTarget,
+          message: 'Are you sure you want to proceed?',
+          icon: 'pi pi-exclamation-triangle',
+          accept: () => {
+            this.$toast.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 })
+          },
+          reject: () => {
+            this.$toast.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 })
+          }
+        })
+      } */
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

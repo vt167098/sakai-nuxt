@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 interface Props {
   error: {
+<<<<<<< HEAD
     description?: string,
     message?: string,
     statusCode: string,
@@ -10,6 +11,19 @@ interface Props {
 }
 
 const { error } = defineProps<Props>();
+=======
+    description?: string
+    message?: string
+    statusCode: string
+    statusMessage: string
+    url: string
+  }
+}
+
+// eslint-disable-next-line vue/no-setup-props-destructure
+const { error } = defineProps<Props>()
+
+>>>>>>> 2d5dea2 (Initial commit)
 </script>
 
 <template>

@@ -1,8 +1,37 @@
+<<<<<<< HEAD
 <script lang="ts">
 import AppTopBar from '~/components/layouts/default/AppTopbar.vue';
 import AppMenu from '~/components/layouts/default/AppMenu.vue';
 import AppConfig from '~/components/layouts/default/AppConfig.vue';
 import AppFooter from '~/components/layouts/default/AppFooter.vue';
+=======
+<template>
+  <div :class="containerClass" @click="onWrapperClick">
+    <AppTopBar @menu-toggle="onMenuToggle" />
+    <div class="layout-sidebar" @click="onSidebarClick">
+      <AppMenu :model="menu" @menuitem-click="onMenuItemClick" />
+    </div>
+
+    <div class="layout-main-container">
+      <div class="layout-main">
+        <slot />
+      </div>
+      <AppFooter />
+    </div>
+
+    <AppConfig :layout-mode="layoutMode" @layout-change="onLayoutChange" />
+    <transition name="layout-mask">
+      <div v-if="mobileMenuActive" class="layout-mask p-component-overlay" />
+    </transition>
+  </div>
+</template>
+
+<script lang="ts">
+import AppTopBar from '~/components/layouts/default/AppTopbar.vue'
+import AppMenu from '~/components/layouts/default/AppMenu.vue'
+import AppConfig from '~/components/layouts/default/AppConfig.vue'
+import AppFooter from '~/components/layouts/default/AppFooter.vue'
+>>>>>>> 2d5dea2 (Initial commit)
 
 export default {
   components: {
@@ -11,7 +40,11 @@ export default {
     AppConfig,
     AppFooter
   },
+<<<<<<< HEAD
   data() {
+=======
+  data () {
+>>>>>>> 2d5dea2 (Initial commit)
     return {
       layoutMode: 'static',
       staticMenuInactive: false,
@@ -119,6 +152,7 @@ export default {
         {
           label: 'Get Started',
           items: [
+<<<<<<< HEAD
             {
               label: 'Documentation',
               icon: 'pi pi-fw pi-question',
@@ -126,14 +160,24 @@ export default {
                 window.location.href = '/documentation';
               }
             },
+=======
+            { label: 'Documentation', icon: 'pi pi-fw pi-question', command: () => { window.location.href = '/documentation' } },
+>>>>>>> 2d5dea2 (Initial commit)
             { label: 'View Source', icon: 'pi pi-fw pi-search', url: 'https://github.com/who-jonson/sakai-nuxt' }
           ]
         }
       ]
+<<<<<<< HEAD
     };
   },
   computed: {
     containerClass() {
+=======
+    }
+  },
+  computed: {
+    containerClass () {
+>>>>>>> 2d5dea2 (Initial commit)
       return ['layout-wrapper', {
         'layout-overlay': this.layoutMode === 'overlay',
         'layout-static': this.layoutMode === 'static',
@@ -143,6 +187,7 @@ export default {
         'p-input-filled': this.$primevue.config.inputStyle === 'filled',
         'p-ripple-disabled': this.$primevue.config.ripple === false,
         'layout-theme-light': this.$appState.theme.startsWith('saga')
+<<<<<<< HEAD
       }];
     },
     logo() {
@@ -173,10 +218,39 @@ export default {
     },
     onMenuToggle() {
       this.menuClick = true;
+=======
+      }]
+    },
+    logo () {
+      return (this.$appState.darkTheme) ? '/images/logo-white.svg' : '/images/logo.svg'
+    }
+  },
+  watch: {
+    $route () {
+      this.menuActive = false
+      this.$toast.removeAllGroups()
+    }
+  },
+  beforeUpdate () {
+    if (this.mobileMenuActive) { this.addClass(document.body, 'body-overflow-hidden') } else { this.removeClass(document.body, 'body-overflow-hidden') }
+  },
+  methods: {
+    onWrapperClick () {
+      if (!this.menuClick) {
+        this.overlayMenuActive = false
+        this.mobileMenuActive = false
+      }
+
+      this.menuClick = false
+    },
+    onMenuToggle () {
+      this.menuClick = true
+>>>>>>> 2d5dea2 (Initial commit)
 
       if (this.isDesktop()) {
         if (this.layoutMode === 'overlay') {
           if (this.mobileMenuActive === true) {
+<<<<<<< HEAD
             this.overlayMenuActive = true;
           }
 
@@ -256,6 +330,54 @@ export default {
   </div>
 </template>
 
+=======
+            this.overlayMenuActive = true
+          }
+
+          this.overlayMenuActive = !this.overlayMenuActive
+          this.mobileMenuActive = false
+        } else if (this.layoutMode === 'static') {
+          this.staticMenuInactive = !this.staticMenuInactive
+        }
+      } else {
+        this.mobileMenuActive = !this.mobileMenuActive
+      }
+
+      event.preventDefault()
+    },
+    onSidebarClick () {
+      this.menuClick = true
+    },
+    onMenuItemClick (event) {
+      if (event.item && !event.item.items) {
+        this.overlayMenuActive = false
+        this.mobileMenuActive = false
+      }
+    },
+    onLayoutChange (layoutMode) {
+      this.layoutMode = layoutMode
+    },
+    addClass (element, className) {
+      if (element.classList) { element.classList.add(className) } else { element.className += ` ${className}` }
+    },
+    removeClass (element, className) {
+      if (element.classList) { element.classList.remove(className) } else { element.className = element.className.replace(new RegExp(`(^|\\b)${className.split(' ').join('|')}(\\b|$)`, 'gi'), ' ') }
+    },
+    isDesktop () {
+      return window.innerWidth >= 992
+    },
+    isSidebarVisible () {
+      if (this.isDesktop()) {
+        if (this.layoutMode === 'static') { return !this.staticMenuInactive } else if (this.layoutMode === 'overlay') { return this.overlayMenuActive }
+      }
+
+      return true
+    }
+  }
+}
+</script>
+
+>>>>>>> 2d5dea2 (Initial commit)
 <style lang="scss">
   @import '~/assets/styles/App.scss';
 </style>

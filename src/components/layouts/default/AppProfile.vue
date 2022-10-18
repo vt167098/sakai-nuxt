@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 export default {
   data() {
@@ -14,6 +15,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="layout-profile">
     <div>
@@ -45,6 +48,25 @@ export default {
   </div>
 </template>
 
+<<<<<<< HEAD
+=======
+<script lang="ts">
+export default {
+  data () {
+    return {
+      expanded: false
+    }
+  },
+  methods: {
+    onClick (event) {
+      this.expanded = !this.expanded
+      event.preventDefault()
+    }
+  }
+}
+</script>
+
+>>>>>>> 2d5dea2 (Initial commit)
 <style scoped>
 
 </style>

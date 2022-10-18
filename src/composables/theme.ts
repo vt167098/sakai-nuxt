@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { isBrowser } from '@whoj/utils';
 
 export function useAppTheme(theme: string) {
@@ -12,5 +13,21 @@ export function useAppTheme(theme: string) {
     }
 
     lingTag.href = `/themes/${theme}/theme.css`;
+=======
+import { isBrowser } from '@whoj/utils'
+
+export function useAppTheme (theme: string) {
+  if (isBrowser) {
+    let lingTag = document.querySelector<HTMLLinkElement>('link[id="theme-link"]')
+
+    if (!lingTag) {
+      lingTag = document.createElement('link')
+      lingTag.id = 'theme-link'
+      lingTag.rel = 'stylesheet'
+      document.head.appendChild(lingTag)
+    }
+
+    lingTag.href = `/themes/${theme}/theme.css`
+>>>>>>> 2d5dea2 (Initial commit)
   }
 }

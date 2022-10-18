@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 export default {
   data() {
@@ -30,6 +31,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid misc-layout">
     <div class="col-12">
@@ -64,11 +67,15 @@ export default {
 
         <h5>Inline Button Badge</h5>
         <Button label="Emails" badge="8" class="mr-2" />
+<<<<<<< HEAD
         <Button
           label="Messages" icon="pi pi-users" class="p-button-warning"
           badge="8"
           badge-class="p-badge-danger"
         />
+=======
+        <Button label="Messages" icon="pi pi-users" class="p-button-warning" badge="8" badge-class="p-badge-danger" />
+>>>>>>> 2d5dea2 (Initial commit)
 
         <h5>Sizes</h5>
         <div class="badges">
@@ -87,17 +94,26 @@ export default {
           <Avatar image="/images/avatar/onyamalimba.png" size="large" shape="circle" />
           <Avatar image="/images/avatar/ionibowcher.png" size="large" shape="circle" />
           <Avatar image="/images/avatar/xuxuefeng.png" size="large" shape="circle" />
+<<<<<<< HEAD
           <Avatar label="+2" shape="circle" size="large" :style="{ 'background-color': '#9c27b0', 'color': '#ffffff' }" />
+=======
+          <Avatar label="+2" shape="circle" size="large" :style="{'background-color':'#9c27b0', 'color': '#ffffff'}" />
+>>>>>>> 2d5dea2 (Initial commit)
         </AvatarGroup>
 
         <h5>Label - Circle</h5>
         <Avatar label="P" class="mr-2" size="xlarge" shape="circle" />
+<<<<<<< HEAD
         <Avatar
           label="V" class="mr-2" size="large"
           :style="{ 'background-color': '#2196F3', 'color': '#ffffff' }"
           shape="circle"
         />
         <Avatar label="U" class="mr-2" :style="{ 'background-color': '#9c27b0', 'color': '#ffffff' }" shape="circle" />
+=======
+        <Avatar label="V" class="mr-2" size="large" :style="{'background-color':'#2196F3', 'color': '#ffffff'}" shape="circle" />
+        <Avatar label="U" class="mr-2" :style="{'background-color': '#9c27b0', 'color': '#ffffff'}" shape="circle" />
+>>>>>>> 2d5dea2 (Initial commit)
 
         <h5>Icon - Badge</h5>
         <Avatar v-badge.success="4" icon="pi pi-user" class="mr-2" size="xlarge" />
@@ -105,7 +121,11 @@ export default {
 
       <div class="card">
         <h4>ScrollTop</h4>
+<<<<<<< HEAD
         <ScrollPanel :style="{ width: '250px', height: '200px' }">
+=======
+        <ScrollPanel :style="{width: '250px', height: '200px'}">
+>>>>>>> 2d5dea2 (Initial commit)
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Vitae et leo duis ut diam.
@@ -195,3 +215,38 @@ export default {
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+export default {
+  data () {
+    return {
+      value: 0
+    }
+  },
+  interval: null,
+  mounted () {
+    this.startProgress()
+  },
+  beforeUnmount () {
+    this.endProgress()
+  },
+  methods: {
+    startProgress () {
+      this.interval = setInterval(() => {
+        let newValue = this.value + Math.floor(Math.random() * 10) + 1
+        if (newValue >= 100) {
+          newValue = 100
+        }
+        this.value = newValue
+      }, 2000)
+    },
+    endProgress () {
+      clearInterval(this.interval)
+      this.interval = null
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

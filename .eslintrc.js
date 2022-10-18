@@ -7,7 +7,12 @@ module.exports = {
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
+<<<<<<< HEAD
     '@whoj'
+=======
+    'plugin:nuxt/recommended',
+    'plugin:vue/vue3-essential'
+>>>>>>> 2d5dea2 (Initial commit)
   ],
   parserOptions: {
     ecmaVersion: 2021
@@ -21,8 +26,11 @@ module.exports = {
     'import/no-named-as-default': 'off',
     'no-unused-expressions': 'off',
     'vue/no-v-html': 'off',
+<<<<<<< HEAD
     'vue/v-on-event-hyphenation': 'off',
     'vue/custom-event-name-casing': 'off',
+=======
+>>>>>>> 2d5dea2 (Initial commit)
     'vue/no-v-model-argument': 'off',
     'vue/no-template-shadow': 'off',
     'vue/multi-word-component-names': 'off',
@@ -37,4 +45,8 @@ module.exports = {
       ]
     }
   ]
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> 2d5dea2 (Initial commit)

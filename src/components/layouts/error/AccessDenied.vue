@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 interface Props {
   error: {
+<<<<<<< HEAD
     description?: string,
     message?: string,
     statusCode: string,
@@ -10,6 +11,17 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+=======
+    description?: string
+    message?: string
+    statusCode: string
+    statusMessage: string
+    url: string
+  }
+}
+
+const props = defineProps<Props>()
+>>>>>>> 2d5dea2 (Initial commit)
 </script>
 
 <template>

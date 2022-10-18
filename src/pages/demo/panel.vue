@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 export default {
   data() {
@@ -35,6 +36,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid panel-demo">
     <div class="col-12">
@@ -259,3 +262,43 @@ export default {
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+export default {
+  data () {
+    return {
+      toolbarItems: [
+        {
+          label: 'Save',
+          icon: 'pi pi-check'
+        },
+        {
+          label: 'Update',
+          icon: 'pi pi-upload'
+        },
+        {
+          label: 'Delete',
+          icon: 'pi pi-trash'
+        },
+        {
+          label: 'Home Page',
+          icon: 'pi pi-home'
+        }
+      ],
+      cardMenu: [
+        { label: 'Save', icon: 'pi pi-fw pi-check' },
+        { label: 'Update', icon: 'pi pi-fw pi-refresh' },
+        { label: 'Delete', icon: 'pi pi-fw pi-trash' }
+      ]
+    }
+  },
+  methods: {
+    toggle () {
+      this.$refs.menu.toggle(event)
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

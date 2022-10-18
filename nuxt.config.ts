@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { fileURLToPath } from 'url';
 import { resolve } from 'pathe';
 import { defineNuxtConfig } from 'nuxt/config';
@@ -16,6 +17,17 @@ export default defineNuxtConfig({
         { rel: 'icon', href: '/favicon.ico' }
       ]
     }
+=======
+import { fileURLToPath } from 'url'
+import { resolve } from 'pathe'
+import { defineNuxtConfig } from 'nuxt/config'
+
+const resolvePath = (...paths: string[]) => resolve(fileURLToPath(new URL('./', import.meta.url)), ...paths)
+
+export default defineNuxtConfig({
+  alias: {
+    public: resolvePath('./public/')
+>>>>>>> 2d5dea2 (Initial commit)
   },
 
   build: {
@@ -46,7 +58,11 @@ export default defineNuxtConfig({
   ],
 
   dir: {
+<<<<<<< HEAD
     public: '../public/'
+=======
+    public: resolvePath('./public/')
+>>>>>>> 2d5dea2 (Initial commit)
   },
 
   experimental: {
@@ -61,6 +77,19 @@ export default defineNuxtConfig({
     }
   },
 
+<<<<<<< HEAD
+=======
+  meta: {
+    meta: [
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    ],
+    link: [
+      { rel: 'icon', href: '/favicon.ico' }
+    ]
+  },
+
+>>>>>>> 2d5dea2 (Initial commit)
   modules: [
     '@pinia/nuxt',
     '@vueuse/nuxt',
@@ -80,4 +109,8 @@ export default defineNuxtConfig({
     clearScreen: true,
     logLevel: 'info'
   }
+<<<<<<< HEAD
 });
+=======
+})
+>>>>>>> 2d5dea2 (Initial commit)

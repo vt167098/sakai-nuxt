@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 import CountryService from '~~/services/CountryService';
 import NodeService from '~~/services/NodeService';
@@ -91,6 +92,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid p-fluid">
     <div class="col-12 md:col-6">
@@ -179,11 +182,15 @@ export default {
           </div>
           <div class="col-12">
             <h5>Knob</h5>
+<<<<<<< HEAD
             <Knob
               v-model="knobValue" :step="10" :min="-50"
               :max="50"
               value-template="{value}%"
             />
+=======
+            <Knob v-model="knobValue" :step="10" :min="-50" :max="50" value-template="{value}%" />
+>>>>>>> 2d5dea2 (Initial commit)
           </div>
         </div>
       </div>
@@ -247,6 +254,7 @@ export default {
         <Dropdown v-model="dropdownValue" :options="dropdownValues" option-label="name" placeholder="Select" />
 
         <h5>MultiSelect</h5>
+<<<<<<< HEAD
         <MultiSelect
           v-model="multiselectValue" :options="multiselectValues" option-label="name"
           placeholder="Select Countries"
@@ -255,6 +263,12 @@ export default {
           <template #value="slotProps">
             <div v-for="option of slotProps.value" :key="option.code" class="inline-flex align-items-center py-1 px-2 bg-primary text-primary border-round mr-2">
               <span :class="`mr-2 flag flag-${option.code.toLowerCase()}`" style="width:18px; height: 12px" />
+=======
+        <MultiSelect v-model="multiselectValue" :options="multiselectValues" option-label="name" placeholder="Select Countries" :filter="true">
+          <template #value="slotProps">
+            <div v-for="option of slotProps.value" :key="option.code" class="inline-flex align-items-center py-1 px-2 bg-primary text-primary border-round mr-2">
+              <span :class="'mr-2 flag flag-' + option.code.toLowerCase()" style="width:18px; height: 12px" />
+>>>>>>> 2d5dea2 (Initial commit)
               <div>{{ option.name }}</div>
             </div>
             <template v-if="!slotProps.value || slotProps.value.length === 0">
@@ -265,7 +279,11 @@ export default {
           </template>
           <template #option="slotProps">
             <div class="flex align-items-center">
+<<<<<<< HEAD
               <span :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`" style="width:18px; height: 12px" />
+=======
+              <span :class="'mr-2 flag flag-' + slotProps.option.code.toLowerCase()" style="width:18px; height: 12px" />
+>>>>>>> 2d5dea2 (Initial commit)
               <div>{{ slotProps.option.name }}</div>
             </div>
           </template>
@@ -277,7 +295,11 @@ export default {
 
       <div class="card">
         <h5>ToggleButton</h5>
+<<<<<<< HEAD
         <ToggleButton v-model="toggleValue" on-label="Yes" off-label="No" :style="{ width: '10em' }" />
+=======
+        <ToggleButton v-model="toggleValue" on-label="Yes" off-label="No" :style="{width: '10em'}" />
+>>>>>>> 2d5dea2 (Initial commit)
 
         <h5>SelectButton</h5>
         <SelectButton v-model="selectButtonValue1" :options="selectButtonValues1" option-label="name" />
@@ -330,3 +352,98 @@ export default {
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+<script lang="ts">
+import CountryService from '~~/services/CountryService'
+import NodeService from '~~/services/NodeService'
+export default {
+  data () {
+    return {
+      floatValue: null,
+      autoValue: null,
+      selectedAutoValue: null,
+      autoFilteredValue: [],
+      calendarValue: null,
+      inputNumberValue: null,
+      chipsValue: null,
+      sliderValue: 50,
+      ratingValue: null,
+      colorValue: '1976D2',
+      radioValue: null,
+      checkboxValue: [],
+      switchValue: false,
+      listboxValues: [
+        { name: 'New York', code: 'NY' },
+        { name: 'Rome', code: 'RM' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Paris', code: 'PRS' }
+      ],
+      listboxValue: null,
+      dropdownValues: [
+        { name: 'New York', code: 'NY' },
+        { name: 'Rome', code: 'RM' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Paris', code: 'PRS' }
+      ],
+      dropdownValue: null,
+      multiselectValue: null,
+      multiselectValues: [
+        { name: 'Australia', code: 'AU' },
+        { name: 'Brazil', code: 'BR' },
+        { name: 'China', code: 'CN' },
+        { name: 'Egypt', code: 'EG' },
+        { name: 'France', code: 'FR' },
+        { name: 'Germany', code: 'DE' },
+        { name: 'India', code: 'IN' },
+        { name: 'Japan', code: 'JP' },
+        { name: 'Spain', code: 'ES' },
+        { name: 'United States', code: 'US' }
+      ],
+      toggleValue: false,
+      selectButtonValues1: [
+        { name: 'Option 1', code: 'O1' },
+        { name: 'Option 2', code: 'O2' },
+        { name: 'Option 3', code: 'O3' }
+      ],
+      selectButtonValue1: null,
+      selectButtonValues2: [
+        { name: 'Option 1', code: 'O1' },
+        { name: 'Option 2', code: 'O2' },
+        { name: 'Option 3', code: 'O3' }
+      ],
+      selectButtonValue2: null,
+      inputGroupValue: false,
+      knobValue: 20,
+      treeSelectNodes: null,
+      selectedNode: null
+    }
+  },
+  countryService: null,
+  nodeService: null,
+  created () {
+    this.countryService = new CountryService()
+    this.nodeService = new NodeService()
+  },
+  mounted () {
+    this.countryService.getCountries().then(data => this.autoValue = data)
+    this.nodeService.getTreeNodes().then(data => this.treeSelectNodes = data)
+  },
+  methods: {
+    searchCountry (event) {
+      setTimeout(() => {
+        if (!event.query.trim().length) {
+          this.autoFilteredValue = [...this.autoValue]
+        } else {
+          this.autoFilteredValue = this.autoValue.filter((country) => {
+            return country.name.toLowerCase().startsWith(event.query.toLowerCase())
+          })
+        }
+      }, 250)
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

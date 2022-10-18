@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 import NodeService from '~~/services/NodeService';
 
@@ -21,6 +22,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid">
     <div class="col-12">
@@ -44,3 +47,29 @@ export default {
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+import NodeService from '~~/services/NodeService'
+
+export default {
+  data () {
+    return {
+      treeValue: null,
+      selectedTreeValue: null,
+      treeTableValue: null,
+      selectedTreeTableValue: null
+    }
+  },
+  nodeService: null,
+  created () {
+    this.nodeService = new NodeService()
+  },
+  mounted () {
+    this.nodeService.getTreeNodes().then(data => this.treeValue = data)
+    this.nodeService.getTreeTableNodes().then(data => this.treeTableValue = data)
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

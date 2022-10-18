@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 export default {
   data() {
@@ -33,6 +34,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid">
     <div class="col-12 md:col-6">
@@ -186,6 +189,7 @@ export default {
           :loading="loading[1]"
           @click="load(1)"
         />
+<<<<<<< HEAD
         <Button
           type="button" class="mr-2 mb-2" icon="pi pi-search"
           :loading="loading[2]"
@@ -196,7 +200,49 @@ export default {
           :loading="loading[3]"
           @click="load(3)"
         />
+=======
+        <Button type="button" class="mr-2 mb-2" icon="pi pi-search" :loading="loading[2]" @click="load(2)" />
+        <Button type="button" class="mr-2 mb-2" label="Search" :loading="loading[3]" @click="load(3)" />
+>>>>>>> 2d5dea2 (Initial commit)
       </div>
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+export default {
+  data () {
+    return {
+      items: [
+        {
+          label: 'Update',
+          icon: 'pi pi-refresh'
+        },
+        {
+          label: 'Delete',
+          icon: 'pi pi-times'
+        },
+        {
+          separator: true
+        },
+        {
+          label: 'Home',
+          icon: 'pi pi-home'
+        }
+      ],
+      loading: [false, false, false]
+    }
+  },
+  methods: {
+    load (index) {
+      this.loading[index] = true
+      setTimeout(() => {
+        this.loading[index] = false
+      }, 1000)
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

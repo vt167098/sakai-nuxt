@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 <script>
 export default {
 
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid">
     <div class="col-12">
@@ -15,6 +18,15 @@ export default {
   </div>
 </template>
 
+<<<<<<< HEAD
+=======
+<script>
+export default {
+
+}
+</script>
+
+>>>>>>> 2d5dea2 (Initial commit)
 <style scoped>
 
 </style>

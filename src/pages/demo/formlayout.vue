@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 export default {
   data() {
@@ -13,6 +14,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="grid">
     <div class="col-12 md:col-6">
@@ -112,11 +115,15 @@ export default {
           <div class="field col-12 md:col-3">
             <label for="state">State</label>
             <ClientOnly>
+<<<<<<< HEAD
               <Dropdown
                 id="state" v-model="dropdownItem" :options="dropdownItems"
                 option-label="name"
                 placeholder="Select One"
               />
+=======
+              <Dropdown id="state" v-model="dropdownItem" :options="dropdownItems" option-label="name" placeholder="Select One" />
+>>>>>>> 2d5dea2 (Initial commit)
             </ClientOnly>
           </div>
           <div class="field col-12 md:col-3">
@@ -128,3 +135,22 @@ export default {
     </div>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+
+export default {
+  data () {
+    return {
+      dropdownItems: [
+        { name: 'Option 1', code: 'Option 1' },
+        { name: 'Option 2', code: 'Option 2' },
+        { name: 'Option 3', code: 'Option 3' }
+      ],
+      dropdownItem: null
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)

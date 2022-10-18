@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script lang="ts">
 export default {
   emits: ['topbar-menu-toggle', 'menu-toggle'],
@@ -20,6 +21,8 @@ export default {
 };
 </script>
 
+=======
+>>>>>>> 2d5dea2 (Initial commit)
 <template>
   <div class="layout-topbar">
     <NuxtLink to="/" class="layout-topbar-logo">
@@ -31,6 +34,7 @@ export default {
     </button>
 
     <button
+<<<<<<< HEAD
       v-styleclass="{
         selector: '@next',
         enterClass: 'hidden',
@@ -39,6 +43,10 @@ export default {
         leaveActiveClass: 'fadeout',
         hideOnOutsideClick: true
       }"
+=======
+      v-styleclass="{ selector: '@next', enterClass: 'hidden', enterActiveClass: 'scalein',
+                      leaveToClass: 'hidden', leaveActiveClass: 'fadeout', hideOnOutsideClick: true}"
+>>>>>>> 2d5dea2 (Initial commit)
       class="p-link layout-topbar-menu-button layout-topbar-button"
     >
       <i class="pi pi-ellipsis-v" />
@@ -65,3 +73,28 @@ export default {
     </ul>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+<script lang="ts">
+export default {
+  emits: ['topbar-menu-toggle', 'menu-toggle'],
+  computed: {
+    darkTheme () {
+      return this.$appState.darkTheme
+    }
+  },
+  methods: {
+    onMenuToggle (event) {
+      this.$emit('menu-toggle', event)
+    },
+    onTopbarMenuToggle (event) {
+      this.$emit('topbar-menu-toggle', event)
+    },
+    topbarImage () {
+      return this.$appState.darkTheme ? '/images/logo-white.svg' : '/images/logo-dark.svg'
+    }
+  }
+}
+</script>
+>>>>>>> 2d5dea2 (Initial commit)
